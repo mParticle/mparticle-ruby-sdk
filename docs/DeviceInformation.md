@@ -1,0 +1,41 @@
+# MParticle::DeviceInformation
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**brand** | **String** |  | [optional] 
+**product** | **String** |  | [optional] 
+**device** | **String** |  | [optional] 
+**android_uuid** | **String** |  | [optional] 
+**device_manufacturer** | **String** |  | [optional] 
+**platform** | **String** |  | [optional] 
+**os_version** | **String** |  | [optional] 
+**device_model** | **String** |  | [optional] 
+**screen_height** | **Integer** |  | [optional] 
+**screen_width** | **Integer** |  | [optional] 
+**screen_dpi** | **Integer** |  | [optional] 
+**device_country** | **String** |  | [optional] 
+**locale_language** | **String** |  | [optional] 
+**locale_country** | **String** |  | [optional] 
+**network_country** | **String** |  | [optional] 
+**network_carrier** | **String** |  | [optional] 
+**network_code** | **String** |  | [optional] 
+**network_mobile_country_code** | **String** |  | [optional] 
+**timezone_offset** | **Integer** |  | [optional] 
+**build_identifier** | **String** |  | [optional] 
+**http_header_user_agent** | **String** |  | [optional] 
+**ios_advertising_id** | **String** |  | [optional] 
+**push_token** | **String** |  | [optional] 
+**cpu_architecture** | **String** |  | [optional] 
+**is_tablet** | **BOOLEAN** |  | [optional] 
+**push_notification_sound_enabled** | **BOOLEAN** |  | [optional] 
+**push_notification_vibrate_enabled** | **BOOLEAN** |  | [optional] 
+**radio_access_technology** | **String** |  | [optional] 
+**supports_telephony** | **BOOLEAN** |  | [optional] 
+**has_nfc** | **BOOLEAN** |  | [optional] 
+**bluetooth_enabled** | **BOOLEAN** |  | [optional] 
+**bluetooth_version** | **String** |  | [optional] 
+**ios_idfv** | **String** |  | [optional] 
+**android_advertising_id** | **String** |  | [optional] 
+
+
