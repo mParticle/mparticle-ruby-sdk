@@ -12,11 +12,15 @@ api_instance = MParticle::EventsApi.new(config)
 batch = MParticle::Batch.new
 batch.environment = 'development'
 
+user_identities = MParticle::UserIdentities.new
+user_identities.customerid = '12345'
+
 app_event = MParticle::AppEvent.new
 app_event.event_name = 'Test event'
 app_event.custom_event_type = 'navigation'
 
 batch.events = [MParticle::SessionStartEvent.new, app_event, MParticle::SessionEndEvent.new]
+batch.user_identities = user_identities
 
 begin
   # send events
