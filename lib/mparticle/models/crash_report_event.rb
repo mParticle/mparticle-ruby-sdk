@@ -121,7 +121,7 @@ module MParticle
       end
 
       if attributes.has_key?(:'custom_attributes')
-        if (value = attributes[:'custom_attributes']).is_a?(Array)
+        if (value = attributes[:'custom_attributes']).is_a?(Hash)
           self.custom_attributes = value
         end
       end
