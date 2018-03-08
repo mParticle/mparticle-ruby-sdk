@@ -18,6 +18,7 @@ user_identities.customerid = '12345'
 app_event = MParticle::AppEvent.new
 app_event.event_name = 'Test event'
 app_event.custom_event_type = 'navigation'
+app_event.custom_attributes = { 'Test key' => 'Test value' }
 
 batch.events = [MParticle::SessionStartEvent.new, app_event, MParticle::SessionEndEvent.new]
 batch.user_identities = user_identities
