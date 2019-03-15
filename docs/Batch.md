@@ -14,5 +14,7 @@ Name | Type | Description | Notes
 **deleted_user_attributes** | **Array&lt;String&gt;** |  | [optional] 
 **user_identities** | [**UserIdentities**](UserIdentities.md) |  | [optional] 
 **api_key** | **String** |  | [optional] 
+**mpid** | **Integer** |  | [optional] 
+**mp_deviceid** | **String** |  | [optional] 
 
 

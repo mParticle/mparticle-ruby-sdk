@@ -25,6 +25,10 @@ module MParticle
 
     attr_accessor :api_key
 
+    attr_accessor :mpid
+
+    attr_accessor :mp_deviceid
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -100,7 +104,9 @@ module MParticle
         :'user_attributes' => :'user_attributes',
         :'deleted_user_attributes' => :'deleted_user_attributes',
         :'user_identities' => :'user_identities',
-        :'api_key' => :'api_key'
+        :'api_key' => :'api_key',
+        :'mpid' => :'mpid',
+        :'mp_deviceid' => :'mp_deviceid'
       }
     end
 
@@ -117,7 +123,9 @@ module MParticle
         :'user_attributes' => :'Object',
         :'deleted_user_attributes' => :'Array<String>',
         :'user_identities' => :'UserIdentities',
-        :'api_key' => :'String'
+        :'api_key' => :'String',
+        :'mpid' => :'Integer',
+        :'mp_deviceid' => :'String'
       }
     end
 
@@ -177,6 +185,14 @@ module MParticle
         self.api_key = attributes[:'api_key']
       end
 
+      if attributes.has_key?(:'mpid')
+        self.mpid = attributes[:'mpid']
+      end
+
+      if attributes.has_key?(:'mp_deviceid')
+        self.mp_deviceid = attributes[:'mp_deviceid']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -224,7 +240,9 @@ module MParticle
           user_attributes == o.user_attributes &&
           deleted_user_attributes == o.deleted_user_attributes &&
           user_identities == o.user_identities &&
-          api_key == o.api_key
+          api_key == o.api_key &&
+          mpid == o.mpid &&
+          mp_deviceid == o.mp_deviceid
     end
 
     # @see the `==` method
@@ -236,7 +254,7 @@ module MParticle
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [events, source_request_id, environment, ip, schema_version, device_info, application_info, user_attributes, deleted_user_attributes, user_identities, api_key].hash
+      [events, source_request_id, environment, ip, schema_version, device_info, application_info, user_attributes, deleted_user_attributes, user_identities, api_key, mpid, mp_deviceid].hash
     end
 
     # Builds the object from hash
