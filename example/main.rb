@@ -23,6 +23,9 @@ app_event.custom_attributes = { 'Test key' => 'Test value' }
 batch.events = [MParticle::SessionStartEvent.new, app_event, MParticle::SessionEndEvent.new]
 batch.user_identities = user_identities
 
+batch.mpid = 600868121729048600
+batch.mp_deviceid = "59780f39-d7a0-4ebe-9950-280f937c29e2"
+
 begin
   # send events
   thread = api_instance.upload_events(batch) { |data, status_code, headers|
