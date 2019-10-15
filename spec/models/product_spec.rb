@@ -3,7 +3,6 @@ require 'mparticle'
 describe 'Product' do
   it 'should create an instance of Product' do
     model = MParticle::Product.new
-    # puts model
     expect(model).to be_an_instance_of MParticle::Product
   end
 
