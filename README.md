@@ -72,6 +72,20 @@ rescue MParticle::ApiError => e
 end
 ```
 
+### Running tests
+
+Install [Rspec](https://github.com/rspec/rspec)
+
+```sh
+gem install rspec
+```
+
+Run tests
+
+```sh
+rspec
+```
+
 ### License
 
 [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
