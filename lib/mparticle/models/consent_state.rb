@@ -28,6 +28,8 @@ module MParticle
 
       if attributes.has_key?(:'gdpr')
         self.gdpr = attributes[:'gdpr']
+      else
+        self.gdpr = {}
       end
     end
 
