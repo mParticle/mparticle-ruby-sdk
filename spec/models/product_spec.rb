@@ -1,4 +1,3 @@
-# require 'mparticle/models/product'
 require 'mparticle'
 
 describe 'Product' do
