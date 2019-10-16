@@ -6,7 +6,7 @@ This is the mParticle Ruby client SDK - use it to send your data to the [mPartic
 
 ## Requirements
 
-Ruby 1.9 or later
+Ruby 2.0 or later
 
 ### Installation
 

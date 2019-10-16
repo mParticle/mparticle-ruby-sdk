@@ -23,6 +23,8 @@ module MParticle
 
     attr_accessor :user_identities
 
+    attr_accessor :consent_state
+
     attr_accessor :api_key
 
     attr_accessor :mpid
@@ -102,6 +104,7 @@ module MParticle
         :'device_info' => :'device_info',
         :'application_info' => :'application_info',
         :'user_attributes' => :'user_attributes',
+        :'consent_state' => :'consent_state',
         :'deleted_user_attributes' => :'deleted_user_attributes',
         :'user_identities' => :'user_identities',
         :'api_key' => :'api_key',

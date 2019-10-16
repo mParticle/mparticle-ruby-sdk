@@ -23,6 +23,20 @@ app_event.custom_attributes = { 'Test key' => 'Test value' }
 batch.events = [MParticle::SessionStartEvent.new, app_event, MParticle::SessionEndEvent.new]
 batch.user_identities = user_identities
 
+gdpr_consent_state = MParticle::GDPRConsentState.new
+gdpr_consent_state.document = 'document_agreement.v2'
+gdpr_consent_state.consented = true
+gdpr_consent_state.timestamp_unixtime_ms = Time.now.to_i
+gdpr_consent_state.location = 'dtmgbank.com/signup'
+gdpr_consent_state.hardware_id = 'IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702'
+
+consent_state = MParticle::ConsentState.new
+# Make sure this purpose matches your consent purpose in
+# Setup > GDPR Settings
+# https://docs.mparticle.com/guides/consent-management/#enabling-gdpr-consent-management
+consent_state.gdpr = { 'document_agreement' => gdpr_consent_state }
+batch.consent_state = consent_state
+
 batch.mpid = 600868121729048600
 batch.mp_deviceid = "59780f39-d7a0-4ebe-9950-280f937c29e2"
 
