@@ -19,6 +19,34 @@ app_event = MParticle::AppEvent.new
 app_event.event_name = 'Test event'
 app_event.custom_event_type = 'navigation'
 app_event.custom_attributes = { 'Test key' => 'Test value' }
+app_event.custom_flags = {
+  'answer': 42,
+  'question': 'What is the answer to life, the universe, and everything?',
+  'dolphins': [
+      'So long',
+      'Thanks for all the fish'
+  ]
+}
+
+screen_view_event = MParticle::ScreenViewEvent.new
+screen_view_event.custom_flags = {
+  'answer': 42,
+  'question': 'What is the answer to life, the universe, and everything?',
+  'dolphins': [
+      'So long',
+      'Thanks for all the fish'
+  ]
+}
+
+commerce_event = MParticle::CommerceEvent.new
+commerce_event = {
+  'answer': 42,
+  'question': 'What is the answer to life, the universe, and everything?',
+  'dolphins': [
+      'So long',
+      'Thanks for all the fish'
+  ]
+}
 
 batch.events = [MParticle::SessionStartEvent.new, app_event, MParticle::SessionEndEvent.new]
 batch.user_identities = user_identities

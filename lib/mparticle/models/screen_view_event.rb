@@ -23,6 +23,8 @@ module MParticle
 
     attr_accessor :activity_type
 
+    attr_accessor :custom_flags
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -36,7 +38,8 @@ module MParticle
         :'location' => :'location',
         :'device_current_state' => :'device_current_state',
         :'screen_name' => :'screen_name',
-        :'activity_type' => :'activity_type'
+        :'activity_type' => :'activity_type',
+        :'custom_flags' => :'custom_flags',
       }
     end
 
@@ -52,7 +55,8 @@ module MParticle
         :'location' => :'GeoLocation',
         :'device_current_state' => :'DeviceCurrentState',
         :'screen_name' => :'String',
-        :'activity_type' => :'String'
+        :'activity_type' => :'String',
+        :'custom_flags' => :'Hash<String, String>'
       }
     end
 
@@ -106,6 +110,10 @@ module MParticle
         self.activity_type = attributes[:'activity_type']
       end
 
+      if attributes.has_key?(:'custom_flags')
+        self.custom_flags = attributes[:'custom_flags']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -140,7 +148,8 @@ module MParticle
           location == o.location &&
           device_current_state == o.device_current_state &&
           screen_name == o.screen_name &&
-          activity_type == o.activity_type
+          activity_type == o.activity_type &&
+          custom_flags == o.custom_flags
     end
 
     # @see the `==` method
@@ -152,7 +161,7 @@ module MParticle
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [timestamp_unixtime_ms, event_id, source_message_id, session_id, session_uuid, custom_attributes, location, device_current_state, screen_name, activity_type].hash
+      [timestamp_unixtime_ms, event_id, source_message_id, session_id, session_uuid, custom_attributes, location, device_current_state, screen_name, activity_type, custom_flags].hash
     end
 
     # Builds the object from hash
