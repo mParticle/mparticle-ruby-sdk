@@ -25,6 +25,8 @@ module MParticle
 
     attr_accessor :media_info
 
+    attr_accessor :custom_flags
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -60,7 +62,8 @@ module MParticle
         :'device_current_state' => :'device_current_state',
         :'custom_event_type' => :'custom_event_type',
         :'event_name' => :'event_name',
-        :'media_info' => :'media_info'
+        :'media_info' => :'media_info',
+        :'custom_flags' => :'custom_flags',
       }
     end
 
@@ -77,7 +80,8 @@ module MParticle
         :'device_current_state' => :'DeviceCurrentState',
         :'custom_event_type' => :'String',
         :'event_name' => :'String',
-        :'media_info' => :'MediaInfo'
+        :'media_info' => :'MediaInfo',
+        :'custom_flags' => :'Hash<String, String>',
       }
     end
 
@@ -135,6 +139,10 @@ module MParticle
         self.media_info = attributes[:'media_info']
       end
 
+      if attributes.has_key?(:'custom_flags')
+        self.custom_flags = attributes[:'custom_flags']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -187,7 +195,8 @@ module MParticle
           device_current_state == o.device_current_state &&
           custom_event_type == o.custom_event_type &&
           event_name == o.event_name &&
-          media_info == o.media_info
+          media_info == o.media_info &&
+          custom_flags == o.custom_flags
     end
 
     # @see the `==` method
@@ -199,7 +208,7 @@ module MParticle
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [timestamp_unixtime_ms, event_id, source_message_id, session_id, session_uuid, custom_attributes, location, device_current_state, custom_event_type, event_name, media_info].hash
+      [timestamp_unixtime_ms, event_id, source_message_id, session_id, session_uuid, custom_attributes, location, device_current_state, custom_event_type, event_name, media_info, custom_flags].hash
     end
 
     # Builds the object from hash

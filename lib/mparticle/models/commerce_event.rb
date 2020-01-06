@@ -33,6 +33,7 @@ module MParticle
 
     attr_accessor :is_non_interactive
 
+    attr_accessor :custom_flags
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -51,7 +52,8 @@ module MParticle
         :'shopping_cart' => :'shopping_cart',
         :'currency_code' => :'currency_code',
         :'screen_name' => :'screen_name',
-        :'is_non_interactive' => :'is_non_interactive'
+        :'is_non_interactive' => :'is_non_interactive',
+        :'custom_flags' => :'custom_flags',
       }
     end
 
@@ -72,7 +74,8 @@ module MParticle
         :'shopping_cart' => :'ShoppingCart',
         :'currency_code' => :'String',
         :'screen_name' => :'String',
-        :'is_non_interactive' => :'BOOLEAN'
+        :'is_non_interactive' => :'BOOLEAN',
+        :'custom_flags' => :'Hash<String, String>',
       }
     end
 
@@ -148,6 +151,10 @@ module MParticle
         self.is_non_interactive = attributes[:'is_non_interactive']
       end
 
+      if attributes.has_key?(:'custom_flags')
+        self.custom_flags = attributes[:'custom_flags']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -182,7 +189,8 @@ module MParticle
           shopping_cart == o.shopping_cart &&
           currency_code == o.currency_code &&
           screen_name == o.screen_name &&
-          is_non_interactive == o.is_non_interactive
+          is_non_interactive == o.is_non_interactive &&
+          custom_flags == o.custom_flags
     end
 
     # @see the `==` method
@@ -194,7 +202,7 @@ module MParticle
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [timestamp_unixtime_ms, event_id, source_message_id, session_id, session_uuid, custom_attributes, location, device_current_state, product_action, promotion_action, product_impressions, shopping_cart, currency_code, screen_name, is_non_interactive].hash
+      [timestamp_unixtime_ms, event_id, source_message_id, session_id, session_uuid, custom_attributes, location, device_current_state, product_action, promotion_action, product_impressions, shopping_cart, currency_code, screen_name, is_non_interactive, custom_flags].hash
     end
 
     # Builds the object from hash
