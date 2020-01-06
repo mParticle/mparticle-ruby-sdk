@@ -19,4 +19,4 @@
 | **currency_code**         | **String**                                                 |             | [optional] |
 | **screen_name**           | **String**                                                 |             | [optional] |
 | **is_non_interactive**    | **BOOLEAN**                                                |             | [optional] |
-| **custom_flags**          | **dict(str, str)**                                         |             | [optional] |
+| **custom_flags**          | **Hash&lt;String, String&gt;**                             |             | [optional] |

@@ -53,7 +53,7 @@ module MParticle
         :'currency_code' => :'currency_code',
         :'screen_name' => :'screen_name',
         :'is_non_interactive' => :'is_non_interactive',
-        :'custom_flags' => :'custom_flags'
+        :'custom_flags' => :'custom_flags',
       }
     end
 

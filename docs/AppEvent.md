@@ -15,4 +15,4 @@
 | **custom_event_type**     | **String**                                      |             |
 | **event_name**            | **String**                                      |             |
 | **media_info**            | [**MediaInfo**](MediaInfo.md)                   |             | [optional] |
-| **custom_flags**          | **dict(str, str)**                              |             | [optional] |
+| **custom_flags**          | **Hash&lt;String, String&gt;**                  |             | [optional] |

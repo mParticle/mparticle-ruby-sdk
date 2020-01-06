@@ -14,4 +14,4 @@
 | **device_current_state**  | [**DeviceCurrentState**](DeviceCurrentState.md) |             | [optional] |
 | **screen_name**           | **String**                                      |             |
 | **activity_type**         | **String**                                      |             | [optional] |
-| **custom_flags**          | **dict(str, str)**                              |             | [optional] |
+| **custom_flags**          | **Hash&lt;String, String&gt;**                  |             | [optional] |
