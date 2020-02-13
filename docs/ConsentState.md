@@ -2,6 +2,7 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-
+| Name      | Type     | Description | Notes |
+| --------- | -------- | ----------- | ----- |
+| **gdpr ** | **Hash** |             |       |
+| **ccpa ** | **Hash** |             |       |

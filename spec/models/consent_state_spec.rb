@@ -11,4 +11,9 @@ describe 'ConsentState' do
     expect(model).to have_attributes(:gdpr => {})
   end
 
+  it 'should have the property ccpa (base name: "ccpa")' do
+    model = MParticle::ConsentState.new
+    expect(model).to have_attributes(:ccpa => {})
+  end
+
 end

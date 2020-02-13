@@ -1,23 +1,30 @@
-require 'date'
-
 module MParticle
-  class ConsentState
-    attr_accessor :gdpr
-    attr_accessor :ccpa
+  class CCPAConsentState
+    attr_accessor :document
+    attr_accessor :consented
+    attr_accessor :timestamp_unixtime_ms 
+    attr_accessor :location
+    attr_accessor :hardware_id
 
      # Attribute mapping from ruby-style variable name to JSON key.
      def self.attribute_map
       {
-        :'gdpr' => 'gdpr',
-        :'ccpa' => 'ccpa',
+        :'document' => 'document',
+        :'consented' => 'consented',
+        :'timestamp_unixtime_ms' => 'timestamp_unixtime_ms', 
+        :'location' => 'location',
+        :'hardware_id' => 'hardware_id',
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'gdpr' => 'Hash',
-        :'ccpa' => 'Hash',
+        :'document' => 'String',
+        :'consented' => 'Boolean',
+        :'timestamp_unixtime_ms' => 'Integer', 
+        :'location' => 'String',
+        :'hardware_id' => 'String',
       }
     end
 
@@ -29,16 +36,24 @@ module MParticle
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'gdpr')
-        self.gdpr = attributes[:'gdpr']
-      else
-        self.gdpr = {}
+      if attributes.has_key?(:'document')
+        self.document = attributes[:'document']
       end
 
-      if attributes.has_key?(:'ccpa')
-        self.ccpa = attributes[:'ccpa']
-      else
-        self.ccpa = {}
+      if attributes.has_key?(:'consented')
+        self.consented = attributes[:'consented']
+      end
+
+      if attributes.has_key?(:'timestamp_unixtime_ms')
+        self.timestamp_unixtime_ms = attributes[:'timestamp_unixtime_ms']
+      end
+
+      if attributes.has_key?(:'location')
+        self.location = attributes[:'location']
+      end
+
+      if attributes.has_key?(:'hardware_id')
+        self.hardware_id = attributes[:'hardware_id']
       end
     end
 
@@ -47,12 +62,37 @@ module MParticle
     def list_invalid_properties
       invalid_properties = Array.new
 
+      if @document.nil?
+        invalid_properties.push("invalid value for 'document', document cannot be nil.")
+      end
+
+      if @consented.nil?
+        invalid_properties.push("invalid value for 'consented', consented cannot be nil.")
+      end
+
+      if @timestamp_unixtime_ms.nil?
+        invalid_properties.push("invalid value for 'timestamp_unixtime_ms', timestamp_unixtime_ms cannot be nil.")
+      end
+
+      if @location.nil?
+        invalid_properties.push("invalid value for 'location', location cannot be nil.")
+      end
+
+      if @hardware_id.nil?
+        invalid_properties.push("invalid value for 'hardware_id', hardware_id cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @document.nil?
+      return false if @consented.nil?
+      return false if @timestamp_unixtime_ms.nil?
+      return false if @location.nil?
+      return false if @hardware_id.nil?
       return true
     end
 
@@ -61,7 +101,11 @@ module MParticle
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          gdpr == o.gdpr
+          document == o.document &&
+          consented == o.consented &&
+          timestamp_unixtime_ms == o.timestamp_unixtime_ms &&
+          location == o.location &&
+          hardware_id == o.hardware_id
     end
 
     # @see the `==` method
@@ -74,7 +118,11 @@ module MParticle
     # @return [Fixnum] Hash code
     def hash
       [
-        gdpr,
+        document,
+        consented,
+        timestamp_unixtime_ms,
+        location,
+        hardware_id,
       ].hash
     end
 
@@ -181,6 +229,5 @@ module MParticle
         value
       end
     end
-
   end
 end
