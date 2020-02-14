@@ -52,6 +52,7 @@ batch.events = [MParticle::SessionStartEvent.new, app_event, MParticle::SessionE
 batch.user_identities = user_identities
 
 ccpa_consent_state = MParticle::CCPAConsentState.new
+ccpa_consent_state.document = 'document.agreement.v3'
 ccpa_consent_state.consented = true
 ccpa_consent_state.timestamp_unixtime_ms = Time.now.to_i
 ccpa_consent_state.location = 'mparticle.test/signup'
