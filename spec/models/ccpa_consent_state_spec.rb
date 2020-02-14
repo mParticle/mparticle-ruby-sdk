@@ -3,13 +3,7 @@ require 'mparticle'
 describe 'CCPAConsentState' do
   it 'should create an instance of CCPAConsentState' do
     model = MParticle::CCPAConsentState.new
-    expect(model).to be_an_instance_of MParticle:CCPAConsentState:
-  end
-
-  it 'should have the property purpose (base name: "purpose")' do
-    model = MParticle::CCPAConsentState.new
-    model.purpose = 'data_sale_opt_out'
-    expect(model.purpose).to eq 'data_sale_opt_out'
+    expect(model).to be_an_instance_of MParticle::CCPAConsentState
   end
 
   it 'should have the property consented (base name: "consented")' do
