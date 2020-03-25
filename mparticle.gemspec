@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "mparticle"
-  s.version     = "1.0.6"
+  s.version     = "1.0.7"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["mParticle Inc."]
   s.email       = ["support@mparticle.com"]
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 1.9"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
-  s.add_runtime_dependency 'json', '~> 1.8', '>= 1.8.3'
+  s.add_runtime_dependency 'json', '~> 2.0', '>= 2.3.0'
 
   s.files         = `find *`.split("\n").uniq.sort.select{|f| !f.empty? }
   s.executables   = []
