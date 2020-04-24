@@ -1,0 +1,27 @@
+name: Ruby
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Build and mParticle
+      run: |
+        gem build mparticle.gemspec
+        gem install *.gem
+    - name: Build and test with Rspec
+      run: |
+        gem install rspec
+        rspec
