@@ -2,6 +2,7 @@
 
 # load the gem
 require 'mparticle'
+require 'date'
 config = MParticle::Configuration.new
 config.api_key = 'REPLACE WITH API KEY'
 config.api_secret = 'REPLACE WITH API SECRET'
@@ -10,6 +11,7 @@ config.api_secret = 'REPLACE WITH API SECRET'
 api_instance = MParticle::EventsApi.new(config)
 
 batch = MParticle::Batch.new
+batch.timestamp_unixtime_ms = DateTime.now.strftime('%Q').to_i
 batch.environment = 'development'
 
 user_identities = MParticle::UserIdentities.new
@@ -86,5 +88,5 @@ begin
   # wait for the thread, otherwise process may exit too early
   thread.join
 rescue MParticle::ApiError => e
-  puts "Exception when calling mParticle: #{e}"
+  puts "Exception when calling mParticle: #{e.response_body}"
 end

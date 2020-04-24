@@ -31,6 +31,8 @@ module MParticle
 
     attr_accessor :mp_deviceid
 
+    attr_accessor :timestamp_unixtime_ms
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -109,7 +111,8 @@ module MParticle
         :'user_identities' => :'user_identities',
         :'api_key' => :'api_key',
         :'mpid' => :'mpid',
-        :'mp_deviceid' => :'mp_deviceid'
+        :'mp_deviceid' => :'mp_deviceid',
+        :'timestamp_unixtime_ms' => :'timestamp_unixtime_ms'
       }
     end
 
@@ -128,7 +131,8 @@ module MParticle
         :'user_identities' => :'UserIdentities',
         :'api_key' => :'String',
         :'mpid' => :'Integer',
-        :'mp_deviceid' => :'String'
+        :'mp_deviceid' => :'String',
+        :'timestamp_unixtime_ms' => :'Integer'
       }
     end
 
@@ -196,6 +200,10 @@ module MParticle
         self.mp_deviceid = attributes[:'mp_deviceid']
       end
 
+      if attributes.has_key?(:'timestamp_unixtime_ms')
+        self.timestamp_unixtime_ms = attributes[:'timestamp_unixtime_ms']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -245,7 +253,8 @@ module MParticle
           user_identities == o.user_identities &&
           api_key == o.api_key &&
           mpid == o.mpid &&
-          mp_deviceid == o.mp_deviceid
+          mp_deviceid == o.mp_deviceid &&
+          timestamp_unixtime_ms == o.timestamp_unixtime_ms
     end
 
     # @see the `==` method
@@ -257,7 +266,7 @@ module MParticle
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [events, source_request_id, environment, ip, schema_version, device_info, application_info, user_attributes, deleted_user_attributes, user_identities, api_key, mpid, mp_deviceid].hash
+      [events, source_request_id, environment, ip, schema_version, device_info, application_info, user_attributes, deleted_user_attributes, user_identities, api_key, mpid, mp_deviceid, timestamp_unixtime_ms].hash
     end
 
     # Builds the object from hash
