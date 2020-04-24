@@ -19,7 +19,7 @@ module MParticle
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config)
       @config = config
-      @user_agent = "mParticle Ruby client/1.0.3"
+      @user_agent = "mParticle Ruby client/1.0.8"
       @default_headers = {
         'Content-Type' => "application/json",
         'User-Agent' => @user_agent
