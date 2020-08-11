@@ -41,6 +41,8 @@ require 'mparticle/models/session_start_event'
 require 'mparticle/models/shopping_cart'
 require 'mparticle/models/source_information'
 require 'mparticle/models/user_identities'
+require 'mparticle/models/batch_context'
+require 'mparticle/models/data_plan_context'
 
 # APIs
 require 'mparticle/api/events_api'

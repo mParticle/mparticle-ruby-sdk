@@ -41,6 +41,11 @@ api_instance = MParticle::EventsApi.new(config)
 
 batch = MParticle::Batch.new
 batch.environment = 'development'
+batch.context =  MParticle::BatchContext.new
+
+batch.context.data_plan =  MParticle::DataPlanContext.new
+batch.context.data_plan.plan_id =  'my_plan_id'
+batch.context.data_plan.plan_version =  1
 
 user_identities = MParticle::UserIdentities.new
 user_identities.customerid = '12345'

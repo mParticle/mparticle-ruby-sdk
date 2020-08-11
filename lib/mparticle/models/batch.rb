@@ -33,6 +33,8 @@ module MParticle
 
     attr_accessor :timestamp_unixtime_ms
 
+    attr_accessor :context
+    
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -112,7 +114,8 @@ module MParticle
         :'api_key' => :'api_key',
         :'mpid' => :'mpid',
         :'mp_deviceid' => :'mp_deviceid',
-        :'timestamp_unixtime_ms' => :'timestamp_unixtime_ms'
+        :'timestamp_unixtime_ms' => :'timestamp_unixtime_ms',
+        :'context' => :'context'
       }
     end
 
@@ -132,7 +135,9 @@ module MParticle
         :'api_key' => :'String',
         :'mpid' => :'Integer',
         :'mp_deviceid' => :'String',
-        :'timestamp_unixtime_ms' => :'Integer'
+        :'timestamp_unixtime_ms' => :'Integer',
+        :'consent_state' => :'ConsentState',
+        :'context' => :'BatchContext'
       }
     end
 
@@ -202,6 +207,14 @@ module MParticle
 
       if attributes.has_key?(:'timestamp_unixtime_ms')
         self.timestamp_unixtime_ms = attributes[:'timestamp_unixtime_ms']
+      end
+
+      if attributes.has_key?(:'consent_state')
+        self.consent_state = attributes[:'consent_state']
+      end
+
+      if attributes.has_key?(:'context')
+        self.context = attributes[:'context']
       end
 
     end
