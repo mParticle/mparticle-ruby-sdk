@@ -23,6 +23,30 @@ module MParticle
 
     attr_accessor :facebook_custom_audience_id
 
+    attr_accessor :other_id_2
+
+    attr_accessor :other_id_3
+
+    attr_accessor :other_id_4
+
+    attr_accessor :other_id_5
+
+    attr_accessor :other_id_6
+
+    attr_accessor :other_id_7
+
+    attr_accessor :other_id_8
+
+    attr_accessor :other_id_9
+
+    attr_accessor :other_id_10
+
+    attr_accessor :mobile_number
+
+    attr_accessor :phone_number_2
+
+    attr_accessor :phone_number_3
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -36,7 +60,19 @@ module MParticle
         :'yahoo' => :'yahoo',
         :'email' => :'email',
         :'_alias' => :'alias',
-        :'facebook_custom_audience_id' => :'facebook_custom_audience_id'
+        :'facebook_custom_audience_id' => :'facebook_custom_audience_id',
+        :'other_id_2' => :'other_id_2',
+        :'other_id_3' => :'other_id_3',
+        :'other_id_4' => :'other_id_4',
+        :'other_id_5' => :'other_id_5',
+        :'other_id_6' => :'other_id_6',
+        :'other_id_7' => :'other_id_7',
+        :'other_id_8' => :'other_id_8',
+        :'other_id_9' => :'other_id_9',
+        :'other_id_10' => :'other_id_10',
+        :'mobile_number' => :'mobile_number',
+        :'phone_number_2' => :'phone_number_2',
+        :'phone_number_3' => :'phone_number_3'
       }
     end
 
@@ -52,7 +88,19 @@ module MParticle
         :'yahoo' => :'String',
         :'email' => :'String',
         :'_alias' => :'String',
-        :'facebook_custom_audience_id' => :'String'
+        :'facebook_custom_audience_id' => :'String',
+        :'other_id_2' => :'String',
+        :'other_id_3' => :'String',
+        :'other_id_4' => :'String',
+        :'other_id_5' => :'String',
+        :'other_id_6' => :'String',
+        :'other_id_7' => :'String',
+        :'other_id_8' => :'String',
+        :'other_id_9' => :'String',
+        :'other_id_10' => :'String',
+        :'mobile_number' => :'String',
+        :'phone_number_2' => :'String',
+        :'phone_number_3' => :'String'
       }
     end
 
@@ -104,6 +152,54 @@ module MParticle
         self.facebook_custom_audience_id = attributes[:'facebook_custom_audience_id']
       end
 
+      if attributes.has_key?(:'other_id_2')
+        self.other_id_2 = attributes[:'other_id_2']
+      end
+
+      if attributes.has_key?(:'other_id_3')
+        self.other_id_3 = attributes[:'other_id_3']
+      end
+
+      if attributes.has_key?(:'other_id_4')
+        self.other_id_4 = attributes[:'other_id_4']
+      end
+
+      if attributes.has_key?(:'other_id_5')
+        self.other_id_5 = attributes[:'other_id_5']
+      end
+
+      if attributes.has_key?(:'other_id_6')
+        self.other_id_6 = attributes[:'other_id_6']
+      end
+
+      if attributes.has_key?(:'other_id_7')
+        self.other_id_7 = attributes[:'other_id_7']
+      end
+
+      if attributes.has_key?(:'other_id_8')
+        self.other_id_8 = attributes[:'other_id_8']
+      end
+
+      if attributes.has_key?(:'other_id_9')
+        self.other_id_9 = attributes[:'other_id_9']
+      end
+
+      if attributes.has_key?(:'other_id_10')
+        self.other_id_10 = attributes[:'other_id_10']
+      end
+
+      if attributes.has_key?(:'mobile_number')
+        self.mobile_number = attributes[:'mobile_number']
+      end
+
+      if attributes.has_key?(:'phone_number_2')
+        self.phone_number_2 = attributes[:'phone_number_2']
+      end
+
+      if attributes.has_key?(:'phone_number_3')
+        self.phone_number_3 = attributes[:'phone_number_3']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -133,7 +229,19 @@ module MParticle
           yahoo == o.yahoo &&
           email == o.email &&
           _alias == o._alias &&
-          facebook_custom_audience_id == o.facebook_custom_audience_id
+          facebook_custom_audience_id == o.facebook_custom_audience_id &&
+          other_id_2 == o.other_id_2 &&
+          other_id_3 == o.other_id_3 &&
+          other_id_4 == o.other_id_4 &&
+          other_id_5 == o.other_id_5 &&
+          other_id_6 == o.other_id_6 &&
+          other_id_7 == o.other_id_7 &&
+          other_id_8 == o.other_id_8 &&
+          other_id_9 == o.other_id_9 &&
+          other_id_10 == o.other_id_10 &&
+          mobile_number == o.mobile_number &&
+          phone_number_2 == o.phone_number_2 &&
+          phone_number_3 == o.phone_number_3
     end
 
     # @see the `==` method
@@ -145,7 +253,7 @@ module MParticle
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [other, customerid, facebook, twitter, google, microsoft, yahoo, email, _alias, facebook_custom_audience_id].hash
+      [other, customerid, facebook, twitter, google, microsoft, yahoo, email, _alias, facebook_custom_audience_id, other_id_2, other_id_3, other_id_4, other_id_5, other_id_6, other_id_7, other_id_8, other_id_9, other_id_10, mobile_number, phone_number_2, phone_number_3].hash
     end
 
     # Builds the object from hash
