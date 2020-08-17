@@ -19,3 +19,5 @@
 | **mpid**                    | **Integer**                                             |             | [optional] |
 | **mp_deviceid**             | **String**                                              |             | [optional] |
 | **timestamp_unixtime_ms**   | **Integer**                                             |             | [optional] |
+| **context**                 | [**BatchContext**](BatchContext.md)                     |             | [optional] |
+| **integration_attributes**  | **Hash<Integer<Hash,String>>**                          |             | [optional] |
