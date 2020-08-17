@@ -34,6 +34,8 @@ module MParticle
     attr_accessor :timestamp_unixtime_ms
 
     attr_accessor :context
+
+    attr_accessor :integration_attributes
     
     class EnumAttributeValidator
       attr_reader :datatype
@@ -115,7 +117,8 @@ module MParticle
         :'mpid' => :'mpid',
         :'mp_deviceid' => :'mp_deviceid',
         :'timestamp_unixtime_ms' => :'timestamp_unixtime_ms',
-        :'context' => :'context'
+        :'context' => :'context',
+        :'integration_attributes' => :'integration_attributes'
       }
     end
 
@@ -137,7 +140,8 @@ module MParticle
         :'mp_deviceid' => :'String',
         :'timestamp_unixtime_ms' => :'Integer',
         :'consent_state' => :'ConsentState',
-        :'context' => :'BatchContext'
+        :'context' => :'BatchContext',
+        :'integration_attributes' => :'Hash<Integer,Hash<String,String>>'
       }
     end
 
@@ -216,6 +220,10 @@ module MParticle
       if attributes.has_key?(:'context')
         self.context = attributes[:'context']
       end
+      
+      if attributes.has_key?(:'integration_attributes')
+        self.integration_attributes = attributes[:'integration_attributes']
+      end
 
     end
 
@@ -267,7 +275,8 @@ module MParticle
           api_key == o.api_key &&
           mpid == o.mpid &&
           mp_deviceid == o.mp_deviceid &&
-          timestamp_unixtime_ms == o.timestamp_unixtime_ms
+          timestamp_unixtime_ms == o.timestamp_unixtime_ms &&
+          integration_attributes == o.integration_attributes
     end
 
     # @see the `==` method
@@ -279,7 +288,7 @@ module MParticle
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [events, source_request_id, environment, ip, schema_version, device_info, application_info, user_attributes, deleted_user_attributes, user_identities, api_key, mpid, mp_deviceid, timestamp_unixtime_ms].hash
+      [events, source_request_id, environment, ip, schema_version, device_info, application_info, user_attributes, deleted_user_attributes, user_identities, api_key, mpid, mp_deviceid, timestamp_unixtime_ms, integration_attributes].hash
     end
 
     # Builds the object from hash
