@@ -14,6 +14,10 @@ batch = MParticle::Batch.new
 batch.timestamp_unixtime_ms = DateTime.now.strftime('%Q').to_i
 batch.environment = 'development'
 
+batch.device_info = MParticle::DeviceInformation.new
+batch.device_info.att_timestamp_unixtime_ms = DateTime.now.strftime('%Q').to_i
+batch.device_info.att_authorization_status = 'authorized'
+
 user_identities = MParticle::UserIdentities.new
 user_identities.customerid = '12345'
 
@@ -88,5 +92,5 @@ begin
   # wait for the thread, otherwise process may exit too early
   thread.join
 rescue MParticle::ApiError => e
-  puts "Exception when calling mParticle: #{e.response_body}"
+  puts "Exception when calling mParticle: #{e.code}"
 end
