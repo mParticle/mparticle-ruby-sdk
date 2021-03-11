@@ -60,14 +60,14 @@ batch.user_identities = user_identities
 ccpa_consent_state = MParticle::CCPAConsentState.new
 ccpa_consent_state.document = 'document.agreement.v3'
 ccpa_consent_state.consented = true
-ccpa_consent_state.timestamp_unixtime_ms = Time.now.to_i
+ccpa_consent_state.timestamp_unixtime_ms = (Time.now.to_f * 1000).to_i
 ccpa_consent_state.location = 'mparticle.test/signup'
 ccpa_consent_state.hardware_id = 'IDFA:a5d96n32-224a-3b11-1088-a202695bc710'
 
 gdpr_consent_state = MParticle::GDPRConsentState.new
 gdpr_consent_state.document = 'document_agreement.v2'
 gdpr_consent_state.consented = true
-gdpr_consent_state.timestamp_unixtime_ms = Time.now.to_i
+gdpr_consent_state.timestamp_unixtime_ms = (Time.now.to_f * 1000).to_i
 gdpr_consent_state.location = 'dtmgbank.com/signup'
 gdpr_consent_state.hardware_id = 'IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702'
 

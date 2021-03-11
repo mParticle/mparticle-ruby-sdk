@@ -19,7 +19,7 @@ describe 'Batch' do
 
   it 'should have the property att_timestamp_unixtime_ms {base name: "att_timestamp_unixtime_ms" }' do
     device_info = MParticle::DeviceInformation.new
-    now = Time.now.to_i
+    now = (Time.now.to_f * 1000).to_i
     device_info.att_timestamp_unixtime_ms = now
     expect(device_info.att_timestamp_unixtime_ms).to eq now
     puts device_info.to_hash
