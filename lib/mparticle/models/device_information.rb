@@ -67,6 +67,10 @@ module MParticle
 
     attr_accessor :bluetooth_version
 
+    attr_accessor :att_timestamp_unixtime_ms
+
+    attr_accessor :att_authorization_status
+
     attr_accessor :ios_idfv
 
     attr_accessor :android_advertising_id
@@ -128,6 +132,8 @@ module MParticle
         :'has_nfc' => :'has_nfc',
         :'bluetooth_enabled' => :'bluetooth_enabled',
         :'bluetooth_version' => :'bluetooth_version',
+        :'att_timestamp_unixtime_ms' => :'att_timestamp_unixtime_ms',
+        :'att_authorization_status' => :'att_authorization_status',
         :'ios_idfv' => :'ios_idfv',
         :'android_advertising_id' => :'android_advertising_id'
       }
@@ -168,6 +174,8 @@ module MParticle
         :'has_nfc' => :'BOOLEAN',
         :'bluetooth_enabled' => :'BOOLEAN',
         :'bluetooth_version' => :'String',
+        :'att_timestamp_unixtime_ms' => :'Integer',
+        :'att_authorization_status' => :'String',
         :'ios_idfv' => :'String',
         :'android_advertising_id' => :'String'
       }
@@ -309,6 +317,14 @@ module MParticle
         self.bluetooth_version = attributes[:'bluetooth_version']
       end
 
+      if attributes.has_key?(:'att_timestamp_unixtime_ms')
+        self.att_timestamp_unixtime_ms = attributes[:'att_timestamp_unixtime_ms']
+      end
+
+      if attributes.has_key?(:'att_authorization_status')
+        self.att_authorization_status = attributes[:'att_authorization_status']
+      end
+
       if attributes.has_key?(:'ios_idfv')
         self.ios_idfv = attributes[:'ios_idfv']
       end
@@ -330,7 +346,9 @@ module MParticle
     # @return true if the model is valid
     def valid?
       platform_validator = EnumAttributeValidator.new('String', ["Unknown", "iOS", "Android", "tvOS"])
+      att_validator = EnumAttributeValidator.new('String', ["authorized", "denied", "not_determined", "restricted"])
       return false unless platform_validator.valid?(@platform)
+      return false unless att_validator.valid?(@att_authorization_status)
       return true
     end
 
@@ -342,6 +360,16 @@ module MParticle
         fail ArgumentError, "invalid value for 'platform', must be one of #{validator.allowable_values}."
       end
       @platform = platform
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] att_authorization_status Object to be assigned
+    def att_authorization_status=(att_authorization_status)
+      validator = EnumAttributeValidator.new('String', ["authorized", "denied", "not_determined", "restricted"])
+      unless validator.valid?(att_authorization_status)
+        fail ArgumentError, "invalid value for 'att_authorization_status', must be one of #{validator.allowable_values}."
+      end
+      @att_authorization_status = att_authorization_status
     end
 
     # Checks equality by comparing each attribute.
@@ -381,6 +409,8 @@ module MParticle
           has_nfc == o.has_nfc &&
           bluetooth_enabled == o.bluetooth_enabled &&
           bluetooth_version == o.bluetooth_version &&
+          att_timestamp_unixtime_ms == o.att_timestamp_unixtime_ms &&
+          att_authorization_status == o.att_authorization_status &&
           ios_idfv == o.ios_idfv &&
           android_advertising_id == o.android_advertising_id
     end
@@ -394,7 +424,7 @@ module MParticle
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [brand, product, device, android_uuid, device_manufacturer, platform, os_version, device_model, screen_height, screen_width, screen_dpi, device_country, locale_language, locale_country, network_country, network_carrier, network_code, network_mobile_country_code, timezone_offset, build_identifier, http_header_user_agent, ios_advertising_id, push_token, cpu_architecture, is_tablet, push_notification_sound_enabled, push_notification_vibrate_enabled, radio_access_technology, supports_telephony, has_nfc, bluetooth_enabled, bluetooth_version, ios_idfv, android_advertising_id].hash
+      [brand, product, device, android_uuid, device_manufacturer, platform, os_version, device_model, screen_height, screen_width, screen_dpi, device_country, locale_language, locale_country, network_country, network_carrier, network_code, network_mobile_country_code, timezone_offset, build_identifier, http_header_user_agent, ios_advertising_id, push_token, cpu_architecture, is_tablet, push_notification_sound_enabled, push_notification_vibrate_enabled, radio_access_technology, supports_telephony, has_nfc, bluetooth_enabled, bluetooth_version, att_timestamp_unixtime_ms, att_authorization_status, ios_idfv, android_advertising_id].hash
     end
 
     # Builds the object from hash

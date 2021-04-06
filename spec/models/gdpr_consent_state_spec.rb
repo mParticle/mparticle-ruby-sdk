@@ -19,7 +19,7 @@ describe 'GDPRConsentState' do
     end
 
     it 'should have the property timestamp_unixtime_ms {base name: "timestamp_unixtime_ms" }' do
-      now = Time.now.to_i
+      now = (Time.now.to_f * 1000).to_i
       model = MParticle::GDPRConsentState.new
       model.timestamp_unixtime_ms = now
       expect(model.timestamp_unixtime_ms).to eq now

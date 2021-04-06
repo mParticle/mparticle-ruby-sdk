@@ -17,4 +17,23 @@ describe 'Batch' do
 
   end
 
+  it 'should have the property att_timestamp_unixtime_ms {base name: "att_timestamp_unixtime_ms" }' do
+    device_info = MParticle::DeviceInformation.new
+    now = (Time.now.to_f * 1000).to_i
+    device_info.att_timestamp_unixtime_ms = now
+    expect(device_info.att_timestamp_unixtime_ms).to eq now
+    puts device_info.to_hash
+    json = device_info.to_hash.to_json
+
+  end
+
+  it 'should have the property att_authorization_status {base name: "att_authorization_status" }' do
+    device_info = MParticle::DeviceInformation.new
+    device_info.att_authorization_status = 'authorized'
+    expect(device_info.att_authorization_status).to eq('authorized')
+    puts device_info.to_hash
+    json = device_info.to_hash.to_json
+
+  end
+
 end
