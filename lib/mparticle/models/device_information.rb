@@ -345,7 +345,7 @@ module MParticle
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      platform_validator = EnumAttributeValidator.new('String', ["Unknown", "iOS", "Android", "tvOS"])
+      platform_validator = EnumAttributeValidator.new('String', ["Unknown", "iOS", "Android", "web", "tvOS", "roku", "out_of_band", "alexa", "smart_tv", "fire_tv", "xbox"])
       att_validator = EnumAttributeValidator.new('String', ["authorized", "denied", "not_determined", "restricted"])
       return false unless platform_validator.valid?(@platform)
       return false unless att_validator.valid?(@att_authorization_status)
@@ -355,7 +355,7 @@ module MParticle
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] platform Object to be assigned
     def platform=(platform)
-      validator = EnumAttributeValidator.new('String', ["Unknown", "iOS", "Android", "tvOS"])
+      validator = EnumAttributeValidator.new('String', ["Unknown", "iOS", "Android", "web", "tvOS", "roku", "out_of_band", "alexa", "smart_tv", "fire_tv", "xbox"])
       unless validator.valid?(platform)
         fail ArgumentError, "invalid value for 'platform', must be one of #{validator.allowable_values}."
       end
