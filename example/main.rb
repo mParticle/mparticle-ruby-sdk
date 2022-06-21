@@ -6,6 +6,8 @@ require 'date'
 config = MParticle::Configuration.new
 config.api_key = 'REPLACE WITH API KEY'
 config.api_secret = 'REPLACE WITH API SECRET'
+#if your mParticle instance is not hosted via https://app.mparticle.com, the additional parameter between app.<xxx>.mparticle.com will determine your region
+#config.host = 'https://s2s.us2.mparticle.com' or 'https://s2s.au1.mparticle.com' or 'https://s2s.eu1.mparticle.com'
 # config.debugging = true
 
 api_instance = MParticle::EventsApi.new(config)
