@@ -3,9 +3,12 @@ require "uri"
 module MParticle
   class EventsApi
     attr_accessor :api_client
+    attr_accessor :retryAfterTimestamp
+    attr_accessor :latestResponse
 
     def initialize(configuration)
       @api_client = ApiClient.new(configuration)
+      @retryAfterTimestamp = Time.now.to_i
     end
 
     # Send events to mParticle
@@ -16,6 +19,9 @@ module MParticle
     def bulk_upload_events(body, opts = {}, &callback)
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: EventsApi.bulk_upload_events ..."
+      end
+      if @retryAfterTimestamp > Time.now.to_i
+        return @latestResponse
       end
       # verify the required parameter 'body' is set
       fail ArgumentError, "Missing the required parameter 'body' when calling EventsApi.bulk_upload_events" if body.nil?
@@ -48,7 +54,7 @@ module MParticle
         if @api_client.config.debugging
           @api_client.config.logger.debug "API called: EventsApi#bulk_upload_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
-        return data, status_code, headers
+        thread = data, status_code, headers
       else
         thread = @api_client.call_api(:POST, local_var_path,
           {
@@ -63,8 +69,12 @@ module MParticle
           end
           yield data, status_code, headers
         }
-        return thread
       end
+      if thread[1] == 429
+        @latestResponse = thread
+        @retryAfterTimestamp = Time.now.to_i + thread[3]["Retry-After"]
+      end
+      return thread
     end
 
     # Send events to mParticle
@@ -75,6 +85,9 @@ module MParticle
     def upload_events(body, opts = {}, &callback)
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: EventsApi.upload_events ..."
+      end
+      if @retryAfterTimestamp > Time.now.to_i
+        return @latestResponse
       end
       # verify the required parameter 'body' is set
       fail ArgumentError, "Missing the required parameter 'body' when calling EventsApi.upload_events" if body.nil?
@@ -107,7 +120,7 @@ module MParticle
         if @api_client.config.debugging
           @api_client.config.logger.debug "API called: EventsApi#upload_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
         end
-        return data, status_code, headers
+        thread = data, status_code, headers
       else
         thread = @api_client.call_api(:POST, local_var_path,
           {
@@ -122,8 +135,12 @@ module MParticle
           end
           yield data, status_code, headers
         }
-        return thread
       end
+      if thread[1] == 429
+        @latestResponse = thread
+        @retryAfterTimestamp = Time.now.to_i + thread[3]["Retry-After"]
+      end
+      return thread
     end
   end
 end
