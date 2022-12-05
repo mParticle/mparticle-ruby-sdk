@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
   s.add_runtime_dependency 'json', '~> 2.0', '>= 2.3.0'
+  s.add_runtime_dependency 'addressable', '~> 2.3', '>= 2.3.0'
 
   s.files         = `find *`.split("\n").uniq.sort.select{|f| !f.empty? }
   s.executables   = []
